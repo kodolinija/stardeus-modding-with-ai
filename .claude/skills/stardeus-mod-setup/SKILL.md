@@ -27,6 +27,9 @@ The workspace needs to know where the game is. `tools/stardeus setup` finds it a
 4. Read the tool list at the end of the output. Only C# mods need the .NET SDK, only
    decompiling needs dnSpy or ilspycmd. Install nothing before the user agrees.
 
+`STARDEUS_GAME_DIR` and `STARDEUS_USER_DIR` (environment variables) make a single command look
+at another install or user folder without changing the saved setup.
+
 The game version comes from the installed build itself. `LastPlayedVersion.txt` in the user
 folder only changes after the game runs, so it can lag behind a Steam update.
 

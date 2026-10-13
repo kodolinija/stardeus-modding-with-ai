@@ -18,7 +18,8 @@ the method you call, and a place where the game itself calls it.
   matches the official mod template's layout; the game leaves `.vscode/` out of uploads.
 - `tools/stardeus build <Id>` builds it against this computer's game DLLs (the path comes from
   `local/stardeus.props`, written by setup). It needs the .NET SDK; the first build may download
-  the .NET Framework reference assemblies from NuGet. In VS Code, "Run Build Task" works too.
+  the .NET Framework reference assemblies from NuGet. `dotnet build .vscode/mod.csproj` in the
+  mod folder does the same.
 - Target: .NET Framework 4.8.1 profile, C# 9. All game DLLs are referenced, including
   `0Harmony.dll`; none are copied into the mod.
 - The game only loads code at startup: build, then restart the game.

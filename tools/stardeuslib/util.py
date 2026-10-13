@@ -47,8 +47,19 @@ def rel(path) -> str:
         return p.as_posix()
 
 
+def read_saved() -> dict:
+    """What the last `setup` wrote, or an empty dict."""
+    return read_json(PATHS_FILE) if PATHS_FILE.is_file() else {}
+
+
 def load_paths(required: bool = True) -> dict | None:
-    """The result of the last `setup`, or None."""
+    """Where the game is: from the last `setup`, or detected again when STARDEUS_GAME_DIR or
+    STARDEUS_USER_DIR is set (so one command can look at another install without a new setup)."""
+    if os.environ.get("STARDEUS_GAME_DIR") or os.environ.get("STARDEUS_USER_DIR"):
+        from . import paths
+        info = paths.detect()
+        info["tools"] = read_saved().get("tools") or {}
+        return info
     if PATHS_FILE.is_file():
         return read_json(PATHS_FILE)
     if required:

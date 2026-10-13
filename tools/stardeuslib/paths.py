@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 
 from . import vdf
-from .util import APP_ID, UserError, load_paths
+from .util import APP_ID, UserError, read_saved
 
 COMPANY = "Kodo Linija"
 PRODUCT = "Stardeus"
@@ -192,7 +192,7 @@ def detect(game_dir: str | None = None, user_dir: str | None = None) -> dict:
     Priority: arguments, then STARDEUS_GAME_DIR / STARDEUS_USER_DIR, then the overrides saved
     by an earlier `setup`, then auto-detection.
     """
-    saved = (load_paths(required=False) or {}).get("overrides", {})
+    saved = read_saved().get("overrides") or {}
     game_override = game_dir or os.environ.get("STARDEUS_GAME_DIR") or saved.get("game_dir")
     user_override = user_dir or os.environ.get("STARDEUS_USER_DIR") or saved.get("user_dir")
 

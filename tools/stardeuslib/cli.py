@@ -13,7 +13,7 @@ from pathlib import Path
 
 from . import build, catalog, decompile, links, logs, mods, newmod, paths, snapshot, validate
 from .defs import DefIndex
-from .util import LOCAL, PATHS_FILE, ROOT, UserError, load_paths, rel, write_json, write_text
+from .util import LOCAL, PATHS_FILE, ROOT, UserError, load_paths, read_saved, rel, write_json, write_text
 
 
 def _props_xml(managed: str) -> str:
@@ -64,7 +64,7 @@ def _write_vscode(info: dict) -> str:
 
 
 def cmd_setup(a) -> int:
-    saved = load_paths(required=False) or {}
+    saved = read_saved()
     info = paths.detect(a.game_dir, a.user_dir)
     tools = dict(saved.get("tools") or {})
     if a.dnspy:
@@ -91,7 +91,7 @@ def cmd_setup(a) -> int:
 
 
 def cmd_status(a) -> int:
-    saved = load_paths(required=False)
+    saved = read_saved()
     if not saved:
         print("Not set up yet. Run: tools/stardeus setup")
         return 1
