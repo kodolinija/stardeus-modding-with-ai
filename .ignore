@@ -1,0 +1,4 @@
+# Read by ripgrep-based search tools (used by AI coding agents). .gitignore keeps mods/ out of
+# this repository, but searches must still see your mods.
+!/mods/*
+!/mods/**

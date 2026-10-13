@@ -1,0 +1,17 @@
+# Your mods live in mods/ and are not part of this repository (version them on their own)
+/mods/*
+!/mods/README.md
+!/mods/Directory.Build.props
+
+# Machine-specific: found paths, game snapshots, decompiled code, build helpers
+/local/
+
+# Personal tool settings
+/.claude/settings.local.json
+/CLAUDE.local.md
+/.vscode/
+
+__pycache__/
+*.pyc
+/tools/dnspy-host/bin/
+/tools/dnspy-host/obj/

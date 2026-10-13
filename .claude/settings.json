@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(tools/stardeus status:*)",
+      "Bash(tools/stardeus setup:*)",
+      "Bash(tools/stardeus validate:*)",
+      "Bash(tools/stardeus def:*)",
+      "Bash(tools/stardeus find:*)",
+      "Bash(tools/stardeus log:*)",
+      "Bash(tools/stardeus patched:*)",
+      "Bash(tools/stardeus snapshot:*)",
+      "Bash(tools/stardeus diff:*)",
+      "Bash(tools/stardeus decompile:*)",
+      "Bash(tools/stardeus build:*)",
+      "Bash(tools/stardeus --help:*)",
+      "Bash(dotnet build:*)"
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <!-- Built on first use by `tools/stardeus decompile`, with outputs under local/tools/ -->
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <!-- The newest runtime this SDK knows, so nothing extra has to be downloaded -->
+        <TargetFramework>net$(NETCoreAppMaximumVersion)</TargetFramework>
+        <RollForward>Major</RollForward>
+        <Nullable>disable</Nullable>
+        <ImplicitUsings>disable</ImplicitUsings>
+    </PropertyGroup>
+</Project>

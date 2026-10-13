@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Runs the workspace tools with the first Python 3.10+ found (python3, python, or py -3).
+# On Windows, python3 can be the Microsoft Store placeholder, so each candidate is tried for real.
+here="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+for candidate in "python3" "python" "py -3"; do
+    if $candidate -c "import sys; sys.exit(0 if sys.version_info >= (3, 10) else 1)" >/dev/null 2>&1; then
+        exec $candidate "$here/stardeus.py" "$@"
+    fi
+done
+echo "Python 3.10 or newer is needed: https://www.python.org/downloads/ (on Windows, tick \"Add python.exe to PATH\")" >&2
+exit 127

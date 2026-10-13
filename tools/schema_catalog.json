@@ -1,0 +1,425 @@
+{
+  "about": "File patterns and the schema the game ships for them in Core/Config/Schemas. Refresh with: tools/stardeus sync-catalog --from <settings.json>",
+  "entries": [
+    {
+      "fileMatch": [
+        "**/Mods/*/ModInfo.json"
+      ],
+      "schema": "ModInfo.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Definitions/**/*.json"
+      ],
+      "schema": "Def.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Scenarios/**/ShipShapeConfig.json"
+      ],
+      "schema": "ShipShapeConfig.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Graphics/Structure/Hull/**/HullStyle.json"
+      ],
+      "schema": "HullStyleDef.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Abilities/**/*.json"
+      ],
+      "schema": "Ability.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Body/Configurations/**/*.json"
+      ],
+      "schema": "BodyConfiguration.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Body/Parts/**/*.json"
+      ],
+      "schema": "BodyPartDef.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Body/PartTypes/**/*.json"
+      ],
+      "schema": "BodyPartType.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Colors/**/*.json"
+      ],
+      "schema": "ColorDef.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Craftable/**/*.json"
+      ],
+      "schema": "Craftable.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Curves/**/*.json"
+      ],
+      "schema": "CurveDef.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Difficulty/**/*.json"
+      ],
+      "schema": "Difficulty.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Diplomacy/FactionAttitudes/**/*.json"
+      ],
+      "schema": "FactionAttitudeDef.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Diplomacy/Factions/**/*.json"
+      ],
+      "schema": "FactionDef.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Economy/MarketGroups/**/*.json"
+      ],
+      "schema": "MarketGroup.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Economy/MarketItems/**/*.json"
+      ],
+      "schema": "MarketItem.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Fates/**/*.json"
+      ],
+      "schema": "ColonistFate.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Generation/NameInGame/**/*.json"
+      ],
+      "schema": "NameInGame.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Generation/Rooms/**/*.json"
+      ],
+      "schema": "RoomConfig.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Generation/SpaceObjectLooks/**/*.json"
+      ],
+      "schema": "SOLooks.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Generation/Universe/**/*.json"
+      ],
+      "schema": "SpaceObjectType.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Inventory/Items/**/*.json"
+      ],
+      "schema": "InventoryItemDef.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Inventory/SlotTypes/**/*.json"
+      ],
+      "schema": "InventorySlotType.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Jobs/**/*.json"
+      ],
+      "schema": "JobType.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Materials/**/*.json"
+      ],
+      "schema": "MatType.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Needs/**/*.json"
+      ],
+      "schema": "NeedType.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Quests/Quests/**/*.json"
+      ],
+      "schema": "QuestDef.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Roles/**/*.json"
+      ],
+      "schema": "BeingRole.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Ships/Behaviors/**/*.json"
+      ],
+      "schema": "NPCShipBehaviorAssignmentDef.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Ships/ChatResponses/**/*.json"
+      ],
+      "schema": "ShipChatResponseDef.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Ships/ChatTones/**/*.json"
+      ],
+      "schema": "ShipChatToneAssignmentDef.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Ships/Classes/**/*.json"
+      ],
+      "schema": "ShipClassDef.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Ships/CombatStrategies/Flux/**/*.json"
+      ],
+      "schema": "ShipCombatFluxStrategyDef.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Ships/CombatStrategies/Targets/**/*.json"
+      ],
+      "schema": "ShipCombatTargetStrategyDef.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Ships/CombatStrategies/Weapons/**/*.json"
+      ],
+      "schema": "ShipCombatWeaponStrategyDef.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Ships/Devices/Capacitors/**/*.json"
+      ],
+      "schema": "ShipCapacitorDef.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Ships/Devices/Data/**/*.json"
+      ],
+      "schema": "ShipDeviceDef.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Ships/Devices/Engines/**/*.json"
+      ],
+      "schema": "ShipEngineDef.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Ships/Devices/Shields/**/*.json"
+      ],
+      "schema": "ShipShieldDef.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Ships/Devices/Vents/**/*.json"
+      ],
+      "schema": "ShipVentDef.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Ships/Devices/Weapons/**/*.json"
+      ],
+      "schema": "ShipWeaponDef.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Ships/Devices/WeaponTargetTypes/**/*.json"
+      ],
+      "schema": "ShipWeaponTargetTypeDef.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Ships/Reactions/**/*.json"
+      ],
+      "schema": "NPCShipReactionAssignmentDef.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Ships/Tags/**/*.json"
+      ],
+      "schema": "ShipTagDef.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/SignalRequests/**/*.json"
+      ],
+      "schema": "SignalReqConfig.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Soundtrack/**/*.json"
+      ],
+      "schema": "Track.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Space/Deposits/**/*.json"
+      ],
+      "schema": "DepositConfig.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Space/Effects/**/*.json"
+      ],
+      "schema": "SpaceEffectConfig.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Space/POIs/**/*.json"
+      ],
+      "schema": "POIConfig.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Space/RegionTemplates/**/*.json"
+      ],
+      "schema": "RegionTemplate.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Space/SectorTemplates/**/*.json"
+      ],
+      "schema": "SectorTemplate.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Species/Jobs/**/*.json"
+      ],
+      "schema": "SpeciesJobs.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Species/LookPartTypes/**/*.json"
+      ],
+      "schema": "LookPartTypeDef.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Species/Looks/**/*.json"
+      ],
+      "schema": "SpeciesLooksDef.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Species/Types/**/*.json"
+      ],
+      "schema": "Species.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Story/Aspects/**/*.json"
+      ],
+      "schema": "StoryAspectDef.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Story/Events/**/*.json"
+      ],
+      "schema": "StoryEventDef.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Story/FlagCooldowns/**/*.json"
+      ],
+      "schema": "StoryEventFlagCooldownDef.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Story/Generators/**/*.json"
+      ],
+      "schema": "StoryGenDef.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Terraform/**/*.json"
+      ],
+      "schema": "TerraformType.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Traits/Defs/**/*.json"
+      ],
+      "schema": "TraitDef.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Traits/SpeciesTypes/**/*.json"
+      ],
+      "schema": "SpeciesTraitType.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Traits/Types/**/*.json"
+      ],
+      "schema": "TraitType.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Tunable/**/*.json"
+      ],
+      "schema": "Tunable.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Twitch/Roles/**/*.json"
+      ],
+      "schema": "TwitchRole.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/UI/**/*.json"
+      ],
+      "schema": "UIStyleDef.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/UITheme/Themes/**/*.json"
+      ],
+      "schema": "UIThemeDef.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Visuals/AmbientLight/**/*.json"
+      ],
+      "schema": "AmbientLightDef.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Visuals/SpaceSky/**/*.json"
+      ],
+      "schema": "SpaceSkyDef.schema.json"
+    },
+    {
+      "fileMatch": [
+        "**/Config/Visuals/SpaceSkyStorms/**/*.json"
+      ],
+      "schema": "SpaceSkyStormDef.schema.json"
+    }
+  ]
+}

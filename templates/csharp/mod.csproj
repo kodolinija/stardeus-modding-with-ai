@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <!--
+    Builds Libraries/__ASSEMBLY__.dll from Code/**/*.cs against the game's own DLLs.
+    Build with: tools/stardeus build __ID__ (or dotnet build .vscode/mod.csproj)
+    The game leaves the .vscode folder out of Workshop uploads.
+    -->
+    <PropertyGroup>
+        <LangVersion>9.0</LangVersion>
+        <OutputType>Library</OutputType>
+        <TargetFramework>net481</TargetFramework>
+        <RootNamespace>__NAMESPACE__</RootNamespace>
+        <!-- Never "Stardeus_Mod_Template", and never starting with System, Unity, Microsoft. or Mono. -->
+        <AssemblyName>__ASSEMBLY__</AssemblyName>
+        <OutputPath>../Libraries</OutputPath>
+        <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+        <DebugType>embedded</DebugType>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>
+        <GenerateDependencyFile>false</GenerateDependencyFile>
+        <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
+        <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
+        <NoStdLib>true</NoStdLib>
+        <NoConfig>true</NoConfig>
+        <AddAdditionalExplicitAssemblyReferences>false</AddAdditionalExplicitAssemblyReferences>
+        <ImplicitlyExpandNETStandardFacades>false</ImplicitlyExpandNETStandardFacades>
+        <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
+        <!-- The game ships DLLs that reference different versions of the same libraries; harmless here -->
+        <MSBuildWarningsAsMessages>$(MSBuildWarningsAsMessages);MSB3277</MSBuildWarningsAsMessages>
+        <!-- tools/stardeus setup writes the real path to local/stardeus.props; this is the fallback -->
+        <StardeusManaged Condition="'$(StardeusManaged)' == ''">C:/Program Files (x86)/Steam/steamapps/common/Stardeus/Stardeus_Data/Managed</StardeusManaged>
+    </PropertyGroup>
+    <ItemGroup>
+        <Compile Include="../Code/**/*.cs" />
+        <!-- Everything the game ships, including 0Harmony.dll; none of it is copied to the mod -->
+        <Reference Include="$(StardeusManaged)/*.dll" Private="false" />
+    </ItemGroup>
+</Project>

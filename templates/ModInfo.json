@@ -1,0 +1,14 @@
+{
+    // Unique id of the mod. Other mods list it in "Dependencies". Keep it once you publish.
+    "Id" : "__ID__",
+    "Name" : "__NAME__",
+    // Shown in the game's mod list and, unless "DescriptionSteam" is set, on the Workshop page
+    "Description" : "__DESCRIPTION__",
+    // Set to true when the mod is ready: it shows "Upload to Steam Workshop" in the mod's menu
+    "SteamWorkshop" : false,
+    "ModVersion" : "1.0.0",
+    // The game version this mod was made for
+    "GameVersion" : "__GAME_VERSION__"
+    // Mods this one needs. "Core" (the game itself) is always there.
+    // "Dependencies" : [ "OtherModId" ]
+}

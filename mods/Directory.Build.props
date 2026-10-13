@@ -1,0 +1,4 @@
+<Project>
+    <!-- Points every mod's C# project at this computer's game DLLs (local/stardeus.props is written by tools/stardeus setup) -->
+    <Import Project="$(MSBuildThisFileDirectory)../local/stardeus.props" Condition="Exists('$(MSBuildThisFileDirectory)../local/stardeus.props')" />
+</Project>
