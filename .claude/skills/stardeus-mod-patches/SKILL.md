@@ -91,5 +91,8 @@ Quirks of the game's patcher (the validator reports each):
    `tools/stardeus patched` lists them, `tools/stardeus patched Devices/Battery.json` prints one.
    `tools/stardeus log --mod <ModId>` shows patch errors.
 
-When several mods patch the same file, mods without `Dependencies` patch first, then mods
-with them. To patch on top of another mod's change, list that mod in `Dependencies`.
+When several mods patch the same file, mods without `Dependencies` patch first, and a mod
+patches after every mod it lists in `Dependencies`. To patch on top of another mod's change,
+list that mod in `Dependencies`. A mod whose dependency is missing or disabled is not loaded,
+so none of its patches apply. A patch that fails is skipped and its mod is marked broken; the
+other patches to the same file still apply.
