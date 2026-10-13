@@ -8,7 +8,7 @@ through testing and publishing it on the Steam Workshop.
 
 ## What you need
 
-- Stardeus, installed through Steam (a GOG copy works too, without the Workshop).
+- Stardeus, installed through Steam.
 - An AI coding assistant that works inside a folder. With [Claude Code](https://claude.com/claude-code)
   the skills and rules here load on their own; other assistants read `AGENTS.md`.
 - [Python](https://www.python.org/downloads/) 3.10 or newer, for the workspace tools. On
