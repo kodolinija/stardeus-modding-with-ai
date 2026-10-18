@@ -46,6 +46,10 @@ the file sets `"Id"`.
   parent's texts. Add the keys to `Translations/English.csv` (stardeus-mod-assets skill).
 - `ToolPath` (build menu category, like `Energy` or `Devices/Facilities`), `BuildGroup`,
   `Researchable` (tech tree gate), `Spawnable` (appears in generated places), `PreviewIcon`.
+  In a new story game with Show Hints on, the stock build menu tabs appear one at a time as
+  the tutorial reaches them, and a mod item in a stock tab waits with it (the build menu
+  search still finds it). A tab of the mod's own is always shown. Test with hints off, or
+  load a save past the tutorial.
 - Ids are global. A mod def whose id already exists is refused (the game says to use JSON
   patching), so new defs need new ids. Putting the mod's name in the file name avoids clashes
   with other mods.
