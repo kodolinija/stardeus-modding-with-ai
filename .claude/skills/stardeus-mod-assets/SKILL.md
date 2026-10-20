@@ -41,6 +41,12 @@ objects.devices.mylamp.desc,"A lamp that glows, flickers and hums.",,
   and right turn the footprint: a 2x1 device with height is 512x512 down and up, 256x768 left
   and right. `AliasLR` / `AliasUD` (TileGraphics properties) reuse the right sprite for left
   and the down one for up.
+- Floors with see-through parts use `"Shader": "TransparentFloorTile"` (the game's frames and
+  angled floors do). The game treats a floor as an angled corner when it is not walkable and
+  not full integrity: its transparent half is where the ship ends, so it gets an ink line
+  along its sprite's edge and a diagonal foundation. Say it outright with `"IsAngled"` in
+  `TileGraphics`: `false` for a frame piece that is not walkable but not a corner, `true` for
+  a corner that is walkable.
 - Keep sprites in the same folders as the game's sprites of their kind: the game packs sprites
   into atlases by folder, and some kinds (floors, walls) are drawn with atlas-specific settings.
 - PNG with transparency, no padding beyond what the game's sprites have.
