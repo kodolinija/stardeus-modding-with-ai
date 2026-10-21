@@ -80,6 +80,11 @@ def make(info: dict, force: bool = False) -> tuple[Path, bool]:
         if (core / f).is_file():
             (tmp / "Core").mkdir(parents=True, exist_ok=True)
             shutil.copyfile(core / f, tmp / "Core" / f)
+    # The mod versions this build refuses to load, next to the Mods folder in StreamingAssets
+    disabled = core.parent.parent / "DisabledMods.json"
+    if disabled.is_file():
+        tmp.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(disabled, tmp / "DisabledMods.json")
     sprites = _graphics_index(core / "Graphics") if (core / "Graphics").is_dir() else []
     (tmp / "graphics.txt").write_text("\n".join(sprites) + "\n", encoding="utf-8")
     managed = Path(info["managed_dir"])

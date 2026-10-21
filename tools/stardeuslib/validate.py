@@ -95,6 +95,18 @@ class Context:
         return index
 
     @cached_property
+    def disabled_mods(self) -> dict[str, dict]:
+        """Mod Id -> entry of the game's DisabledMods.json: versions it refuses to load."""
+        path = self.snap / "DisabledMods.json"
+        if not path.is_file():
+            return {}
+        try:
+            data, _ = jsonc.load(path)
+        except jsonc.JsoncError:
+            return {}
+        return {str(e.get("Id")): e for e in (data or {}).get("Mods") or [] if e.get("Id")}
+
+    @cached_property
     def sprites(self) -> list[str]:
         path = self.snap / "graphics.txt"
         return sorted(path.read_text(encoding="utf-8").split()) if path.is_file() else []
@@ -151,6 +163,28 @@ class Context:
         return False
 
 
+def _version_key(v: str):
+    v = v.replace("v", "")
+    rc = None
+    if "-rc" in v:
+        v, _, rc_s = v.partition("-rc")
+        rc = int(rc_s) if rc_s.isdigit() else 0
+    parts = v.split(".")
+    if not all(p.isdigit() for p in parts):
+        return None
+    return [int(p) for p in parts], (1, 0) if rc is None else (0, rc)
+
+
+def version_newer(v1: str, v2: str) -> bool:
+    """The game's VersionInfo.IsVersionNewerWithRC: is v1 above v2 (a release sorts after its rcs)."""
+    a, b = _version_key(v1), _version_key(v2)
+    if a is None or b is None:
+        return False
+    n = max(len(a[0]), len(b[0]))
+    pa, pb = a[0] + [0] * (n - len(a[0])), b[0] + [0] * (n - len(b[0]))
+    return pa > pb if pa != pb else a[1] > b[1]
+
+
 def read_translations(path: Path) -> tuple[dict[str, str], list[str]]:
     """Returns (key -> text, problems). The game skips the first line as a header."""
     problems = []
@@ -202,6 +236,15 @@ def validate_mod(mod: mods.Mod, ctx: Context, all_mods: list[mods.Mod]) -> Repor
                 sev("ModInfo.json", f'"{key}" is empty (the Workshop upload requires it)')
         if "*" in str(mod.info.get("ModVersion", "")):
             r.warn("ModInfo.json", '"ModVersion" must not contain *; the game replaces it with 0')
+        listed = ctx.disabled_mods.get(mod.id)
+        if listed is not None:
+            version = str(mod.info.get("ModVersion") or "1.0.0").replace("*", "0")
+            if not listed.get("Version") or not version_newer(version, listed["Version"]):
+                why = f" ({listed['Reason']})" if listed.get("Reason") else ""
+                r.error("ModInfo.json", f'this game version refuses to load "{mod.id}" '
+                                        f'{listed.get("Version") or "in any version"} and older'
+                                        f"{why}: fix the mod and raise ModVersion above "
+                                        f'{listed.get("Version") or "it"} before uploading')
         if not mod.info.get("GameVersion"):
             r.warn("ModInfo.json", f'"GameVersion" is not set (this game is {ctx.paths.get("game_version")})')
         ids = [m.id for m in all_mods]

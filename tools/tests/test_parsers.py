@@ -75,5 +75,19 @@ class ImageTests(unittest.TestCase):
         self.assertEqual(image_info(TEMPLATES / "ModCover.jpg"), ("jpeg", 800, 450))
 
 
+class VersionTests(unittest.TestCase):
+    """The game decides which ModVersion a DisabledMods.json entry covers with these rules."""
+
+    def test_versions_compare_like_the_game(self):
+        from stardeuslib.validate import version_newer
+        self.assertTrue(version_newer("1.2.6", "1.2.5"))
+        self.assertFalse(version_newer("1.2.5", "1.2.5"))
+        self.assertFalse(version_newer("1.2.4", "1.2.5"))
+        self.assertTrue(version_newer("1.10.0", "1.9.9"))
+        self.assertTrue(version_newer("1.0.1", "1.0.1-rc2"))
+        self.assertFalse(version_newer("1.0.1-rc1", "1.0.1-rc2"))
+        self.assertFalse(version_newer("not a version", "1.0.0"))
+
+
 if __name__ == "__main__":
     unittest.main()
