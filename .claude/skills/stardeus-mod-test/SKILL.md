@@ -29,7 +29,8 @@ rebuilds its graphics cache, which happens after sprites change.
 |---|---|
 | "MOD PROBLEMS" popup at startup, the mod listed as broken | The mod is disabled for this run: a DLL failed to load or its initializer threw, a def or patch error, a missing dependency. The log says which |
 | A popup naming the mod and a def | A def error (missing parent, unknown component, missing research prerequisite, duplicate component). Other mods keep loading |
-| "Mod Content Corrupted" with JSON errors | A JSON file failed to load. The log has the file and the parser's message |
+| "Mod Content Corrupted" with JSON errors | A JSON file failed to load. The popup names each file, highlights the line and position the parser stopped at, and the file's path opens its folder. Restart Now relaunches the game after the fix |
+| "SKIPPING MOD" naming `ModInfo.json` | The mod's `ModInfo.json` has a syntax error or (outside the Workshop) an unknown key, so the mod is not loaded at all. The popup shows where |
 | A mod listed as disabled by the developer | The game knows this mod version is broken: its Id and version are in `DisabledMods.json` in the game's StreamingAssets folder, with the reason when there is one. A fixed upload needs a higher `ModVersion`; `tools/stardeus validate` reports it before you upload |
 | Raw keys like `objects.devices.mylamp` in the UI | Missing translation (stardeus-mod-assets skill) |
 | Missing sprites | The sprite id does not match a file in the mod's or the game's Graphics |
