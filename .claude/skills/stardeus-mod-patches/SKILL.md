@@ -95,4 +95,6 @@ When several mods patch the same file, mods without `Dependencies` patch first, 
 patches after every mod it lists in `Dependencies`. To patch on top of another mod's change,
 list that mod in `Dependencies`. A mod whose dependency is missing or disabled is not loaded,
 so none of its patches apply. A patch that fails is skipped and its mod is marked broken; the
-other patches to the same file still apply.
+other mods' patches to the same file still apply. A broken mod (a patch file without a `target`
+or with bad JSON, a DLL that fails to load, a patch that fails) applies no further patches, and
+neither do the mods that depend on it.
