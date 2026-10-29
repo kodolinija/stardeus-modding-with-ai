@@ -86,4 +86,5 @@ against the rules in the other skills. Say that `validate` could not run.
 
 - GOG: the same files, the user folder is the same. Pass the install folder with `--game-dir`.
   The Steam Workshop is not available there; share the mod folder another way.
-- A demo build ships no ReferenceSourceCode.
+- A demo build loads no mods (only its own Core and Translations) and ships no
+  ReferenceSourceCode: make and test mods with the full game.

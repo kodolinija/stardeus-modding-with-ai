@@ -77,7 +77,7 @@ def cmd_setup(a) -> int:
     for key in ("game_dir", "core_dir", "managed_dir", "user_dir", "mods_dir", "player_log"):
         print(f"  {key:12} {info[key]}")
     if not info["reference_source_dir"]:
-        print("  Note: this install has no ReferenceSourceCode (demo builds ship none)")
+        print("  Note: this install has no ReferenceSourceCode (demo builds ship none and load no mods)")
     if not a.no_snapshot:
         snap, created = snapshot.make(info, force=a.refresh)
         print(f"Game snapshot: {rel(snap)} ({'created' if created else 'up to date'})")
